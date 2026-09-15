@@ -35,3 +35,20 @@ footer h2 {
   background: #16213e;
   color: #e0e0e0;
 }
+#daily-quote {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  color: #1a3a8f;
+  opacity: 0.85;
+}
+
+.dark #daily-quote {
+  color: #ff9e9e;
+}
