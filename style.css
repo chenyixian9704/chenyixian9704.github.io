@@ -2,6 +2,7 @@ body {
  font-family: "Microsoft YaHei", sans-serif;
     max-width: 800px;
     margin: 0 auto;
+      position: relative;
     line-height: 1.6;
   }
   header {
@@ -36,10 +37,9 @@ footer h2 {
   color: #e0e0e0;
 }
 #daily-quote {
-  position: fixed;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: absolute;
+  right: -70px;
+  top: 40%;
   writing-mode: vertical-rl;
   font-family: "KaiTi", "STKaiti", serif;
   font-size: 20px;
