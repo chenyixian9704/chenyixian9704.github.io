@@ -26,3 +26,12 @@ footer h2 {
   font-size: 16px;
   margin: 0 0 8px 0;
 }
+.dark {
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+
+.dark footer {
+  background: #16213e;
+  color: #e0e0e0;
+}
