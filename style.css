@@ -52,3 +52,11 @@ footer h2 {
 .dark #daily-quote {
   color: #f7f3f3;
 }
+/* AI 项目演示视频 */
+video {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color, #ddd);
+  display: block;
+}
