@@ -1,21 +1,22 @@
-/* ========== 主题变量:默认「深空」,可切「昼行」 ========== */
+/* ========== 主题变量:默认「墨夜」(墨色+鎏金+朱砂),可切「宣昼」(宣纸+墨字) ========== */
 :root {
-  --text: #eaf0ff;
-  --muted: #93a0bd;
-  --card-bg: rgba(255, 255, 255, .055);
-  --card-border: rgba(255, 255, 255, .13);
-  --pill-bg: rgba(9, 15, 34, .58);
-  --accent: #67e8f9;
-  --accent2: #a5b4fc;
+  --text: #f2ead9;
+  --muted: #b3a68c;
+  --card-bg: rgba(242, 234, 217, .05);
+  --card-border: rgba(206, 178, 110, .24);
+  --pill-bg: rgba(18, 14, 9, .66);
+  --accent: #dcb46a;
+  --accent2: #cf4f35;
+  --font-display: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
 }
 body.light {
-  --text: #101d3a;
-  --muted: #5a6b8c;
-  --card-bg: rgba(255, 255, 255, .72);
-  --card-border: rgba(30, 64, 120, .16);
-  --pill-bg: rgba(255, 255, 255, .66);
-  --accent: #0e7490;
-  --accent2: #4f46e5;
+  --text: #2c2115;
+  --muted: #82705a;
+  --card-bg: rgba(255, 252, 245, .8);
+  --card-border: rgba(148, 116, 62, .3);
+  --pill-bg: rgba(253, 249, 240, .82);
+  --accent: #ad3b25;
+  --accent2: #8a6a25;
 }
 
 * { box-sizing: border-box; }
@@ -30,25 +31,25 @@ body {
   color: var(--text);
   line-height: 1.75;
   font-family: -apple-system, "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
-  background: linear-gradient(165deg, #070b1d 0%, #0c1533 32%, #0a2038 62%, #062e40 100%) fixed;
+  background: linear-gradient(165deg, #17120d 0%, #221a12 34%, #1d1b20 66%, #14161c 100%) fixed;
   overflow-x: hidden;
 }
 body.light {
-  background: linear-gradient(165deg, #eaf1ff 0%, #e6f6f9 46%, #ece9ff 100%) fixed;
+  background: linear-gradient(165deg, #f6f0e3 0%, #f3ead7 46%, #eee3cc 100%) fixed;
 }
 
-/* 背景光斑 */
+/* 背景光斑:朱砂 / 鎏金 / 黛青,如水墨在纸上晕开 */
 .bg-glow {
   position: fixed;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: .34;
+  opacity: .3;
   pointer-events: none;
 }
-.glow-1 { width: 520px; height: 520px; background: #1450d8; top: -140px; left: -120px; }
-.glow-2 { width: 460px; height: 460px; background: #0891b2; bottom: -160px; right: -120px; }
-.glow-3 { width: 300px; height: 300px; background: #6d28d9; top: 40%; left: 56%; opacity: .2; }
-body.light .bg-glow { opacity: .22; }
+.glow-1 { width: 520px; height: 520px; background: #9e2f1f; top: -140px; left: -120px; }
+.glow-2 { width: 460px; height: 460px; background: #b98a2f; bottom: -160px; right: -120px; }
+.glow-3 { width: 300px; height: 300px; background: #31435f; top: 40%; left: 56%; opacity: .18; }
+body.light .bg-glow { opacity: .16; }
 
 /* ========== 胶囊导航 ========== */
 .pill-nav {
@@ -66,7 +67,7 @@ body.light .bg-glow { opacity: .22; }
   border: 1px solid var(--card-border);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 8px 32px rgba(2, 8, 28, .4);
+  box-shadow: 0 8px 32px rgba(10, 6, 2, .4);
   max-width: calc(100vw - 32px);
 }
 .logo {
@@ -89,12 +90,12 @@ body.light .bg-glow { opacity: .22; }
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a.active {
-  background: rgba(103, 232, 249, .15);
+  background: rgba(220, 180, 106, .14);
   color: var(--accent);
 }
 body.light .nav-links a.active {
-  background: rgba(14, 116, 144, .12);
-  color: #0e7490;
+  background: rgba(173, 59, 37, .1);
+  color: #ad3b25;
 }
 .nav-cta {
   color: var(--text);
@@ -135,10 +136,10 @@ body.light .nav-links a.active {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .28);
+  background: rgba(242, 234, 217, .28);
   transition: .25s;
 }
-body.light .dots a { background: rgba(20, 40, 90, .28); }
+body.light .dots a { background: rgba(44, 33, 21, .28); }
 .dots a.active { background: var(--accent); height: 24px; }
 
 /* ========== 分节面板 ========== */
@@ -163,7 +164,13 @@ body.light .dots a { background: rgba(20, 40, 90, .28); }
   font-weight: 600;
   margin: 0 0 6px;
 }
-.sec-title { font-size: 36px; margin: 0 0 8px; }
+.sec-title {
+  font-size: 36px;
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
 .sec-sub { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
 
 /* ========== Hero ========== */
@@ -176,17 +183,25 @@ body.light .dots a { background: rgba(20, 40, 90, .28); }
 .hero-left { max-width: 580px; }
 .hello-pill {
   display: inline-block;
-  border: 1px solid var(--card-border);
-  background: var(--card-bg);
-  border-radius: 999px;
-  padding: 6px 16px;
+  background: linear-gradient(135deg, #b6482b, #8e2c18);
+  color: #f7eeda;
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 16px;
   font-size: 13px;
-  color: var(--accent);
-  letter-spacing: 1px;
+  font-family: var(--font-display);
+  letter-spacing: 3px;
+  box-shadow: 0 4px 14px rgba(160, 50, 25, .35);
 }
-h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
+h1 {
+  font-size: 62px;
+  line-height: 1.12;
+  margin: 22px 0 10px;
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+}
 .hl {
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -199,6 +214,8 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
   border-bottom: 3px solid var(--accent2);
   padding-bottom: 4px;
   margin: 0 0 18px;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
 }
 .hero-desc { color: var(--muted); font-size: 15px; margin: 0 0 22px; }
 .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
@@ -221,7 +238,7 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
   transition: transform .2s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn-primary { background: linear-gradient(90deg, #22d3ee, #818cf8); color: #052736; font-weight: 700; }
+.btn-primary { background: linear-gradient(135deg, #c14e2e, #93291a); color: #f9f1de; font-weight: 700; letter-spacing: 2px; }
 .btn-ghost {
   border: 1px solid var(--card-border);
   color: var(--text);
@@ -237,7 +254,7 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
   width: 156px;
   border-radius: 18px;
   border: 1px solid var(--card-border);
-  box-shadow: 0 14px 34px rgba(2, 8, 28, .42);
+  box-shadow: 0 14px 34px rgba(10, 6, 2, .42);
   transform-style: preserve-3d;
   transition: transform .18s ease-out;
 }
@@ -246,7 +263,7 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
 #skills .sec-mascot { transform: rotate(2deg); }
 #contact .sec-mascot { transform: rotate(-2deg); }
 
-/* Hero 右侧:3D 机器人 */
+/* Hero 右侧:3D 形象 */
 #hero-3d {
   width: 300px;
   height: 380px;
@@ -258,10 +275,10 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
 /* Hero 右侧 */
 .hero-right { position: relative; flex-shrink: 0; }
 .avatar-ring {
-  background: linear-gradient(135deg, #22d3ee, #818cf8, #c084fc);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
   padding: 4px;
   border-radius: 28px;
-  box-shadow: 0 18px 46px rgba(3, 12, 34, .5);
+  box-shadow: 0 18px 46px rgba(10, 6, 2, .5);
   transform-style: preserve-3d;
   transition: transform .18s ease-out;
 }
@@ -285,13 +302,13 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
   display: flex;
   flex-direction: column;
   gap: 2px;
-  box-shadow: 0 12px 30px rgba(2, 8, 28, .42);
+  box-shadow: 0 12px 30px rgba(10, 6, 2, .42);
 }
 .now-label { color: var(--accent); font-size: 11px; letter-spacing: 2px; font-weight: 700; }
 .now-card strong { font-size: 14px; }
 .now-card span:last-child { color: var(--muted); font-size: 12px; }
 
-/* ========== 玻璃卡片 ========== */
+/* ========== 卡片(宣纸质感) ========== */
 .card-grid,
 .timeline {
   display: grid;
@@ -301,12 +318,17 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
 .glass-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 22px 24px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.glass-card h3 { margin: 12px 0 8px; font-size: 17px; }
+.glass-card h3 {
+  margin: 12px 0 8px;
+  font-size: 17px;
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
 .glass-card p { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
 .date-tag {
   display: inline-block;
@@ -356,9 +378,10 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
 #copy-email-btn {
   font: inherit;
   font-size: 17px;
-  background: linear-gradient(90deg, #22d3ee, #818cf8);
-  color: #052736;
+  background: linear-gradient(135deg, #c14e2e, #93291a);
+  color: #f9f1de;
   font-weight: 700;
+  letter-spacing: 1px;
   border: 0;
   border-radius: 999px;
   padding: 14px 36px;
@@ -386,7 +409,7 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
 .more-pill b { color: var(--accent); }
 .more-pill:hover { color: var(--text); }
 
-/* ========== 每日一言(卡片右外侧空白带) ========== */
+/* ========== 每日一言(卡片右外侧空白带,竖排如条幅) ========== */
 #daily-quote {
   position: fixed;
   top: 42%;
@@ -396,7 +419,7 @@ h1 { font-size: 62px; line-height: 1.12; margin: 22px 0 10px; }
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 4px;
-  background: linear-gradient(180deg, #67e8f9, #a5b4fc);
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

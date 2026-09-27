@@ -1,4 +1,4 @@
-// ========== 主题切换:深空(默认) / 昼行 ==========
+// ========== 主题切换:墨夜(默认) / 宣昼 ==========
 const btn = document.querySelector("#theme-btn");
 
 btn.addEventListener("click", function () {
@@ -138,3 +138,45 @@ document.addEventListener("pointerdown", function (e) {
   void m.offsetWidth; // 重启动画
   m.classList.add("excited");
 });
+
+// ========== 3D 形象:头和视线跟随鼠标 ==========
+// 模型是静态网格、没有骨骼,"转头"的做法是让相机绕着他小幅移动:
+// 视角一偏,脸和眼睛看起来就朝鼠标的方向转过去了
+const hero3d = document.querySelector("#hero-3d");
+
+if (hero3d) {
+  let followQueued = false;
+  let idleTimer = null;
+  let dragging3d = false;
+
+  hero3d.addEventListener("pointerdown", function () { dragging3d = true; });
+  window.addEventListener("pointerup", function () { dragging3d = false; });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!hero3d.loaded || dragging3d) return; // 没加载完 / 用户在拖拽时不介入
+    const r = hero3d.getBoundingClientRect();
+    const onScreen = r.bottom > 0 && r.top < window.innerHeight && r.width > 0;
+    if (!onScreen) return;
+
+    const cx = r.left + r.width / 2;
+    const cy = r.top + r.height / 2;
+    const nx = Math.max(-1, Math.min(1, (e.clientX - cx) / r.width));
+    const ny = Math.max(-1, Math.min(1, (e.clientY - cy) / r.height));
+
+    if (!followQueued) {
+      followQueued = true;
+      requestAnimationFrame(function () {
+        followQueued = false;
+        hero3d.autoRotate = false; // 跟随期间暂停自转
+        hero3d.cameraOrbit =
+          (nx * 22).toFixed(1) + "deg " +
+          (75 + ny * 10).toFixed(1) + "deg auto";
+      });
+    }
+
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(function () {
+      hero3d.autoRotate = true; // 鼠标停 4 秒,恢复慢速自转
+    }, 4000);
+  });
+}
