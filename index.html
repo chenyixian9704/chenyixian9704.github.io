@@ -1,47 +1,150 @@
 <!DOCTYPE html>
 <html lang="zh">
-   
 <head>
   <meta charset="UTF-8">
-  <title>我的名片</title>
-  <link rel="stylesheet" href="style.css">
-  </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="陈奕先的作品集:纺织工程转行 AI,独立部署 Dify/RAG 简历问答助手、提示词评测迭代与个人网站。">
+  <title>陈奕先 · 作品集</title>
+  <link rel="stylesheet" href="style.css?v=10">
+</head>
 <body>
-  <header>
-    <h1>陈奕先</h1>
-    <p>正在转行进入 AI 行业 | 目标：AI 产品助理 /fde 现场部署工程师</p>
-    <button id="theme-btn">🌙 深色模式</button>
-  </header>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
 
-  <section>
-    <h2>关于我</h2>
-    <p>毕业于东华大学纺织工程专业的理工男</p>
-  </section>
+  <nav class="pill-nav">
+    <a class="logo" href="#hero">CY<b>PORTFOLIO</b></a>
+    <div class="nav-links">
+      <a href="#hero" class="active">首页</a>
+      <a href="#learn">学习坐标</a>
+      <a href="#build">项目现场</a>
+      <a href="#skills">技能档案</a>
+      <a href="#contact">联系我</a>
+    </div>
+    <a class="nav-cta" href="简历-陈奕先.pdf" target="_blank">简历.pdf ↗</a>
+    <button id="theme-btn" title="切换昼夜主题">☀️</button>
+  </nav>
 
-  <section>
-    <h2>正在学习的技能</h2>
-    <ul>
-      <li>HTML 网页结构</li>
-      <li>提示词工程</li>
-    </ul>
-  </section>
-<section>
-  <h2>我的项目</h2>
-  <ul>
-    <li>P1:个人主页(本站,GitHub Pages 部署)</li>
-    <li>P2:页面小工具——深色模式、一键复制邮箱、每日一言</li>
-    <li>P3:简历问答助手——基于 Dify 搭建的 RAG 知识库机器人(演示见下方)</li>
-  </ul>
-</section>
-<section>
-  <h2>AI 项目演示</h2>
-  <p>我用 Dify(Docker 自部署)搭建了一个「简历问答助手」:上传我的简历作为知识库,它可以基于简历内容回答问题,并且不会编造简历之外的信息。</p>
-  <video controls preload="metadata" src="videos/ai-demo.mp4"></video>
-</section>
-  <footer>
-  <h2>联系我</h2>
-  <p><button id="copy-email-btn">cyx9704@126.com</button></p>
+  <div class="dots" id="dots"></div>
   <div id="daily-quote"></div>
+
+  <main>
+    <section id="hero" class="panel">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="hello-pill">● HELLO / 你好</span>
+          <h1>Hi,<br>我是<span class="hl">陈奕先</span></h1>
+          <p class="hero-sub">AI 应用实施 / FDE 现场部署工程师</p>
+          <p class="hero-desc">纺织工程应届生,以「做中学」完成 AI 全链路转型:独立部署 Dify(20 容器)、解决 8 类部署故障、基于 GLM 搭建 RAG 简历问答助手,并为它设计 10 题评测集、完成三版提示词迭代。</p>
+          <div class="chip-row">
+            <span class="chip">RAG 应用</span><span class="chip">Dify</span><span class="chip">提示词工程</span><span class="chip">Docker</span>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="简历-陈奕先.pdf" target="_blank">下载简历</a>
+            <a class="btn btn-ghost" href="#contact">联系我</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <model-viewer id="hero-3d"
+            src="models/astronaut.glb"
+            poster="images/avatar-cartoon-4.jpg"
+            alt="3D 宇航员形象"
+            camera-controls
+            auto-rotate
+            rotation-per-second="20deg"
+            shadow-intensity="1.1"
+            exposure="1.05"
+            interaction-prompt="none"
+            disable-zoom></model-viewer>
+          <div class="now-card"><span class="now-label">NOW</span><strong>正在打磨</strong><span>RAG 应用与提示词评测</span></div>
+        </div>
+      </div>
+      <a class="more-pill" href="#learn">继续下滑,探索更多 <b>↓</b></a>
+    </section>
+
+    <section id="learn" class="panel">
+      <p class="eyebrow">01 / LEARNING PATH</p>
+      <h2 class="sec-title">我的学习坐标</h2>
+      <p class="sec-sub">从纺织工程到 AI 应用,「做中学」是一条完整链路。</p>
+      <img class="sec-mascot" data-rot="2" src="images/avatar-cartoon-3.jpg" alt="">
+      <div class="card-grid">
+        <div class="glass-card">
+          <span class="date-tag">2022.09 — 2026.06</span>
+          <h3>东华大学 · 纺织工程(智能纺织)</h3>
+          <p>本科。主干课程:机织学、纺织材料学、电气控制与 PLC、纺织智能控制原理等;两段科研助理经历(纹织 CAD 面料设计、开松对纤维束尺度的研究)。</p>
+        </div>
+        <div class="glass-card">
+          <span class="date-tag">2026.09 起</span>
+          <h3>AI 方向自学 · 做中学</h3>
+          <p>个人作品集网站(GitHub Pages)→ 云服务器部署 Dify(20 容器)→ RAG 简历问答助手(智谱 GLM)→ 提示词评测与三版迭代。每一站都有可打开的产出。</p>
+        </div>
+      </div>
+      <a class="more-pill" href="#build">继续下滑,探索更多 <b>↓</b></a>
+    </section>
+
+    <section id="build" class="panel">
+      <p class="eyebrow">02 / THE BUILDER</p>
+      <h2 class="sec-title">我在真实现场做过什么</h2>
+      <p class="sec-sub">三个从零到交付的小项目,每一件都能当场打开。</p>
+      <img class="sec-mascot" data-rot="-2" src="images/avatar-build.jpg" alt="">
+      <div class="timeline">
+        <div class="glass-card">
+          <span class="date-tag">P3 · RAG 应用</span>
+          <h3>简历问答助手</h3>
+          <p>Dify 自部署 + 智谱 GLM:简历作知识库,答案必引原文、不知则明确拒答。</p>
+          <p class="metric">三版提示词迭代 · 10 题评测集 · 终版 80/80</p>
+        </div>
+        <div class="glass-card">
+          <span class="date-tag">P2 · 前端交互</span>
+          <h3>页面小工具</h3>
+          <p>深空/昼行双主题、一键复制邮箱、竖排每日一言——就在本站上,可以当场点。</p>
+        </div>
+        <div class="glass-card">
+          <span class="date-tag">P1 · 建站</span>
+          <h3>个人主页</h3>
+          <p>HTML/CSS 从零手写,GitHub Pages 部署——你现在看到的整个站。</p>
+        </div>
+        <div class="glass-card video-card">
+          <span class="date-tag">DEMO · 1 分 21 秒</span>
+          <h3>看它怎么工作</h3>
+          <video controls preload="metadata" src="videos/ai-demo.mp4"></video>
+        </div>
+      </div>
+      <a class="more-pill" href="#skills">继续下滑,探索更多 <b>↓</b></a>
+    </section>
+
+    <section id="skills" class="panel">
+      <p class="eyebrow">03 / SKILLS</p>
+      <h2 class="sec-title">我的技能档案</h2>
+      <p class="sec-sub">每一条都在真实项目里用过,没有一门是「简历熟」。</p>
+      <img class="sec-mascot" data-rot="2" src="images/avatar-skills.jpg" alt="">
+      <div class="skill-cloud">
+        <span class="chip">Dify / RAG 应用搭建</span>
+        <span class="chip">提示词工程与评测</span>
+        <span class="chip">Docker / Docker Compose</span>
+        <span class="chip">Linux 常用命令</span>
+        <span class="chip">Git / GitHub Pages</span>
+        <span class="chip">HTML · CSS · JavaScript</span>
+        <span class="chip">数据分析(Excel / ImageJ)</span>
+        <span class="chip">PS / 剪映 / PPT·Word</span>
+      </div>
+      <a class="more-pill" href="#contact">继续下滑,探索更多 <b>↓</b></a>
+    </section>
+
+    <section id="contact" class="panel">
+      <p class="eyebrow">04 / CONTACT</p>
+      <h2 class="sec-title">来聊聊</h2>
+      <p class="sec-sub">一个岗位的机会,或者一句转行路上的交流,都欢迎。</p>
+      <img class="sec-mascot" data-rot="-2" src="images/avatar-contact.jpg" alt="">
+      <div class="contact-row">
+        <button id="copy-email-btn">cyx9704@126.com</button>
+        <button id="copy-phone-btn">📱 1399714118</button>
+      </div>
+      <p class="contact-hint">点击复制联系方式</p>
+    </section>
+  </main>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4/dist/model-viewer.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
