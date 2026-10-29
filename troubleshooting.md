@@ -9,7 +9,7 @@
   挤爆——重启只是清空了桌面，没有解决"桌子太小"
 - 定位：① 从自己电脑探测 22 端口——能握手 = 机器活着只是慢，
   排除"死机"误判；② free -h 看 available 贴地（一度只剩
-  115Mi）；③ 登录信息里 System load 高企
+  115Mi）；③ 登录信息里 System load 高企；④ 内核日志实锤：/var/log/syslog 里 Out of memory: Killed process (systemd)——连系统总管都被 OOM 杀掉，坐实"内存耗尽"而非其他故障
 - 解决：分两层——
   急救：控制台强制重启 / VNC 进去恢复操作能力
   根治：docker update --restart=no 给 9 个非必需容器（沙箱×2、
@@ -103,3 +103,11 @@
 - **定位**：三步实锤——① 直查数据库确认元数据不在；② `docker volume ls` 发现大量匿名哈希卷；③ `docker ps -a` 显示全部容器创建于同一秒（全新部署的铁证）。
 - **解决**：评估找回成本（旧库仅 1 份简历文档）vs 重建成本（重新上传+索引约 5 分钟）→ 放弃考古，直接重建。若确需找回：从孤儿卷/旧容器挂载旧 postgres 数据导出后导入新库。
 - **教训**：①重要数据必须确认**持久化方式**——匿名卷跟着容器生命周期走，命名卷才可靠；②"容器重建"≠"数据还在原地"；③**重建/重装前先备份数据卷**（`docker run --rm -v 卷名:/数据 -v $(pwd):/备份 alpine tar czf /备份/卷名.tar.gz /数据`）；④清理孤儿卷前（prune）先确认里面没有还要的东西。
+      
+
+## 9. 备份与恢复
+- 所有数据（数据库/知识库向量/配置）都住在：/root/dify/docker/volumes
+- 一条命令全量备份：
+  tar czf /root/dify-backup-$(date +%F).tar.gz -C /root/dify/docker volumes
+- 恢复 = 解包回原位置 + docker compose restart
+- 建议节奏：每次大改前备份一次
