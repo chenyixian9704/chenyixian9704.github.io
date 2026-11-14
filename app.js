@@ -17,7 +17,7 @@ function bindCopy(btnId, text, doneText) {
   });
 }
 bindCopy("#copy-email-btn", "cyx9704@126.com", "✅ 已复制,欢迎来信");
-bindCopy("#copy-phone-btn", "1399714118", "✅ 已复制");
+bindCopy("#copy-phone-btn", "13997141118", "✅ 已复制");
 
 // ========== 每日一言:每次打开轮换下一句(localStorage 记忆) ==========
 const quotes = [
@@ -178,5 +178,19 @@ if (hero3d) {
     idleTimer = setTimeout(function () {
       hero3d.autoRotate = true; // 鼠标停 4 秒,恢复慢速自转
     }, 4000);
+  });
+}
+
+// ========== 移动端汉堡菜单 ==========
+const menuBtn = document.querySelector("#menu-btn");
+const navLinksEl = document.querySelector(".nav-links");
+if (menuBtn && navLinksEl) {
+  menuBtn.addEventListener("click", function () {
+    navLinksEl.classList.toggle("open");
+  });
+  navLinksEl.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      navLinksEl.classList.remove("open");
+    });
   });
 }
